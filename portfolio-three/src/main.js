@@ -42,6 +42,12 @@ function animate() {
 }
 animate();
 
+let mainRequestID;
+function mainAnimationLoop(){
+  mainRequestID = requestAnimationFrame( mainAnimationLoop );
+  renderer.render(scene, camera);
+}
+
 
 var start_t = 1;
 let stopRequestID;
@@ -88,11 +94,12 @@ function smoothStart() {
 document.getElementById('icon').addEventListener('mouseenter', () => {
   cancelAnimationFrame(animateRequestID);
   smoothStop();
+  mainAnimationLoop();
 })
 
 document.getElementById('icon').addEventListener('mouseleave', () => {
   stopped || stop_stop();
-
+  cancelAnimationFrame(mainRequestID);
   smoothStart();
   animate();
 })
