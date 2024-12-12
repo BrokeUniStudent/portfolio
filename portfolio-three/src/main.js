@@ -85,15 +85,15 @@ function smoothStart() {
   }
 }
 
-// document.getElementById('icon').addEventListener('mouseenter', () => {
-//   cancelAnimationFrame(animateRequestID);
-//   smoothStop();
-// })
+document.getElementById('icon').addEventListener('mouseenter', () => {
+  cancelAnimationFrame(animateRequestID);
+  smoothStop();
+})
 
-// document.getElementById('icon').addEventListener('mouseleave', () => {
-//   stopped || stop_stop();
+document.getElementById('icon').addEventListener('mouseleave', () => {
+  stopped || stop_stop();
 
-//   smoothStart();
-//   animate();
-// })
+  smoothStart();
+  animate();
+})
 
